@@ -70,6 +70,7 @@ function App() {
   const activeCertification =
     data.certifications.find((certification) => certification.id === data.activeCertificationId) ?? data.certifications[0]
   const activeQuestions = filterQuestions(generatedQuestions, activeCertification.id)
+  const savedExam = data.inProgressExam?.certificationId === activeCertification.id ? data.inProgressExam : undefined
 
   return (
     <div className="app-shell">
@@ -117,6 +118,7 @@ function App() {
               questions={activeQuestions}
               attempts={data.examAttempts.filter((attempt) => attempt.certificationId === activeCertification.id)}
               progressCount={data.flashcardProgress.length}
+              hasInProgressExam={Boolean(savedExam)}
               onNavigate={setView}
             />
           )}
@@ -150,7 +152,7 @@ function App() {
             <PracticeExams
               questions={activeQuestions}
               certificationId={activeCertification.id}
-              savedExam={data.inProgressExam?.certificationId === activeCertification.id ? data.inProgressExam : undefined}
+              savedExam={savedExam}
               onExamChange={(inProgressExam) => void persist({ ...data, inProgressExam })}
               onSaveAttempt={(attempt) => void persist({ ...data, inProgressExam: undefined, examAttempts: [attempt, ...data.examAttempts] })}
             />
@@ -169,6 +171,7 @@ function Dashboard({
   questions,
   attempts,
   progressCount,
+  hasInProgressExam,
   onNavigate,
 }: {
   certificationName: string
@@ -177,6 +180,7 @@ function Dashboard({
   questions: Question[]
   attempts: ExamAttempt[]
   progressCount: number
+  hasInProgressExam: boolean
   onNavigate: (view: View) => void
 }) {
   const latest = attempts[0]
@@ -190,7 +194,7 @@ function Dashboard({
         <h1>{certificationName}</h1>
         <p>Build confidence with your own glossary, flashcards, and practice exam results.</p>
         <div className="actions">
-          <button type="button" className="primary" onClick={() => onNavigate('exams')}>Start a practice exam</button>
+          <button type="button" className="primary" onClick={() => onNavigate('exams')}>{hasInProgressExam ? 'Continue or start a practice exam' : 'Start a practice exam'}</button>
           <button type="button" onClick={() => onNavigate('glossary')}>Add terminology</button>
         </div>
       </section>
@@ -364,7 +368,7 @@ function restoreSession(savedExam: InProgressExam | undefined, questions: Questi
 }
 
 function PracticeExams({ questions, certificationId, savedExam, onExamChange, onSaveAttempt }: { questions: Question[]; certificationId: string; savedExam?: InProgressExam; onExamChange: (exam: InProgressExam | undefined) => void; onSaveAttempt: (attempt: ExamAttempt) => void }) {
-  const [session, setSessionState] = useState<ExamSession | null>(() => restoreSession(savedExam, questions))
+  const [session, setSessionState] = useState<ExamSession | null>(null)
   const [result, setResult] = useState<ExamAttempt | null>(null)
   const [remainingSeconds, setRemainingSeconds] = useState(generatedExamDurationSeconds)
   const submissionStarted = useRef(false)
@@ -423,11 +427,25 @@ function PracticeExams({ questions, certificationId, savedExam, onExamChange, on
     setResult(attempt)
   }
 
+  const restoredSession = restoreSession(savedExam, questions)
+
   if (result) return <ExamResults attempt={result} questions={sessionQuestions} onBack={() => { setResult(null); setSessionState(null) }} />
   if (session) return <section className="exam-session"><div className="page-heading"><div><p className="eyebrow">Time remaining: {Math.floor(remainingSeconds / 60)}:{String(remainingSeconds % 60).padStart(2, '0')}</p><h1>75-question practice exam</h1><p className="helper">{Object.keys(session.answers).length}/75 answered · {session.flaggedQuestionIds.length} flagged for review · Progress saves automatically</p></div><div className="actions"><button type="button" onClick={() => { if (window.confirm('Discard this exam? Your answers will not be scored.')) { setSessionState(null); onExamChange(undefined) } }}>Discard exam</button><button type="button" className="primary" onClick={submit}>Submit answers</button></div></div>
     {session.questions.map((question, index) => { const selected = session.answers[question.id] ?? []; const selectionLimit = question.correctOptionIds.length; return <article className="question-card" key={question.id}><div className="question-heading"><div><p className="eyebrow">{question.subjectArea}</p><h2>{index + 1}. {question.prompt}</h2></div><button type="button" className={session.flaggedQuestionIds.includes(question.id) ? 'flagged' : ''} onClick={() => toggleFlag(question.id)} aria-pressed={session.flaggedQuestionIds.includes(question.id)}>{session.flaggedQuestionIds.includes(question.id) ? 'Flagged for review' : 'Flag for review'}</button></div><p className="helper">{selectionLimit === 1 ? 'Choose one answer.' : `Choose ${selectionLimit} answers.`}</p>
       {question.options.map((option) => { const isSelected = selected.includes(option.id); return <label className="option" key={option.id}><input type={selectionLimit === 1 ? 'radio' : 'checkbox'} name={question.id} checked={isSelected} disabled={selectionLimit > 1 && !isSelected && selected.length >= selectionLimit} onChange={() => toggle(question, option.id)} /> <strong>{option.id}.</strong> {option.label}</label> })}
     </article> })}</section>
+
+  if (restoredSession) {
+    return <section><div className="page-heading"><div><p className="eyebrow">Unfinished exam</p><h1>Practice exams</h1></div></div>
+      <div className="section-card exam-setup"><h2>You have an exam in progress</h2>
+        <p>Your answers and flagged questions are saved. Continue where you left off, or start a new exam and discard this progress.</p>
+        <div className="actions">
+          <button type="button" className="primary" onClick={() => setSession(restoredSession)}>Continue exam</button>
+          <button type="button" onClick={() => { if (window.confirm('Start a new exam? Your unfinished exam and its answers will be discarded.')) start() }}>Start a new exam</button>
+        </div>
+      </div>
+    </section>
+  }
 
   return <section><div className="page-heading"><div><p className="eyebrow">Cloud Practitioner question bank</p><h1>Practice exams</h1></div></div>
     <div className="section-card exam-setup"><h2>Generated question-bank exam</h2><p>This creates a randomized, balanced {generatedExamQuestionCount}-question exam from all {questions.length} Cloud Practitioner questions. Every subject area is included when available.</p>
