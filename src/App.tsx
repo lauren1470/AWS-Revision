@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import './App.css'
+import { Flashcards } from './Flashcards'
+import { saveFlashcardSession } from './lib/flashcards'
 import { generatedQuestions } from './data/generatedPracticeExams'
 import { exportTermsCsv, importTermsCsv, terminologyCsvHeader } from './lib/csv'
 import { loadAppData, requestPersistentStorage, saveAppData, validateBackup } from './lib/database'
 import { answersAreCorrect, calculateSubjectAreaInsights, filterQuestions, filterTerms, generateBalancedExam, generatedExamDurationSeconds, generatedExamQuestionCount, toggleAnswerSelection } from './lib/study'
-import type { AppData, Category, Certification, ExamAttempt, FlashcardRating, InProgressExam, Question, Term } from './lib/types'
+import type { AppData, Category, Certification, ExamAttempt, InProgressExam, Question, Term } from './lib/types'
 import { themes } from './lib/types'
 
 type View = 'dashboard' | 'glossary' | 'flashcards' | 'exams' | 'settings'
@@ -132,20 +134,14 @@ function App() {
           )}
           {view === 'flashcards' && (
             <Flashcards
+              key={activeCertification.id}
               terms={data.terms.filter((term) => term.certificationIds.includes(activeCertification.id))}
-              categories={data.categories}
-              progress={data.flashcardProgress}
-              onRate={(termId, rating) => {
-                const existing = data.flashcardProgress.find((entry) => entry.termId === termId)
-                const nextProgress = existing
-                  ? data.flashcardProgress.map((entry) =>
-                      entry.termId === termId
-                        ? { ...entry, [rating]: entry[rating] + 1, lastReviewedAt: now() }
-                        : entry,
-                    )
-                  : [...data.flashcardProgress, { termId, again: 0, good: 0, easy: 0, [rating]: 1, lastReviewedAt: now() }]
-                void persist({ ...data, flashcardProgress: nextProgress })
-              }}
+              categories={data.categories.filter((category) => category.certificationIds.includes(activeCertification.id))}
+              certificationId={activeCertification.id}
+              savedSession={data.flashcardSessions?.find((session) => session.certificationId === activeCertification.id)}
+              onChange={(session) => void persist(saveFlashcardSession(data, session, now()))}
+              onClear={() => void persist({ ...data, flashcardSessions: data.flashcardSessions?.filter((session) => session.certificationId !== activeCertification.id) })}
+              onNotice={setNotice}
             />
           )}
           {view === 'exams' && (
@@ -329,33 +325,6 @@ function TermForm({ editing, categories, onSubmit, onCancel }: { editing: Term |
       <div className="actions"><button className="primary" type="submit">Save term</button>{editing && <button type="button" onClick={onCancel}>Cancel</button>}</div>
     </form>
   </aside>
-}
-
-function Flashcards({ terms, categories, progress, onRate }: { terms: Term[]; categories: Category[]; progress: AppData['flashcardProgress']; onRate: (termId: string, rating: FlashcardRating) => void }) {
-  const [categoryId, setCategoryId] = useState('all')
-  const [index, setIndex] = useState(0)
-  const [flipped, setFlipped] = useState(false)
-  const selected = terms.filter((term) => categoryId === 'all' || term.categoryIds.includes(categoryId))
-  const card = selected[index % Math.max(selected.length, 1)]
-
-  function rate(rating: FlashcardRating) {
-    if (!card) return
-    onRate(card.id, rating)
-    setFlipped(false)
-    setIndex((current) => current + 1)
-  }
-
-  return <section><div className="page-heading"><div><p className="eyebrow">Self-rated review</p><h1>Flashcards</h1></div>
-    <select aria-label="Flashcard category" value={categoryId} onChange={(event) => { setCategoryId(event.target.value); setIndex(0) }}>
-      <option value="all">All categories</option>{categories.map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}
-    </select></div>
-    {card ? <><p className="helper">{Math.min(index + 1, selected.length)} of {selected.length} cards · {progress.length} cards have review history</p>
-      <button type="button" className={`flashcard ${flipped ? 'flipped' : ''}`} onClick={() => setFlipped(!flipped)} aria-pressed={flipped}>
-        <span className="eyebrow">{flipped ? 'Definition' : 'Term'} · Click to flip</span><strong>{flipped ? card.definition : card.term}</strong>{flipped && card.notes && <small>{card.notes}</small>}
-      </button>
-      {flipped && <div className="rating-actions" aria-label="Rate this flashcard"><button type="button" onClick={() => rate('again')}>Again</button><button type="button" onClick={() => rate('good')}>Good</button><button type="button" className="primary" onClick={() => rate('easy')}>Easy</button></div>}
-    </> : <div className="empty section-card"><p>Add terminology for this certification before starting flashcards.</p></div>}
-  </section>
 }
 
 type ExamSession = { questions: Question[]; answers: Record<string, string[]>; flaggedQuestionIds: string[]; startedAt: string }

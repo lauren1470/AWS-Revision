@@ -1,5 +1,6 @@
 import { cloudPractitionerCertification } from './types'
 import type { AppData, Category } from './types'
+import { isFlashcardSession } from './flashcards'
 
 const databaseName = 'aws-certification-revision-hub'
 const storeName = 'state'
@@ -104,6 +105,7 @@ export function validateBackup(value: unknown): value is AppData {
     Array.isArray(data.terms) &&
     Array.isArray(data.flashcardProgress) &&
     Array.isArray(data.examAttempts) &&
+    (data.flashcardSessions === undefined || (Array.isArray(data.flashcardSessions) && data.flashcardSessions.every(isFlashcardSession))) &&
     typeof data.activeCertificationId === 'string'
   )
 }

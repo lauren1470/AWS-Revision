@@ -52,6 +52,14 @@ legend { color: var(--label); font-size: .9rem; font-weight: 700; margin-bottom:
 .flashcard.flipped { background: var(--accent-soft); }
 .flashcard strong { font-size: clamp(1.5rem, 3vw, 2.4rem); line-height: 1.25; }
 .rating-actions button { min-width: 100px; }
+.flashcards-page { max-width: 740px; }
+.flashcard-setup { display: grid; gap: 1rem; }
+.flashcard-setup > label:not(.check) { display: grid; gap: .4rem; font-weight: 700; }
+.flashcard-progress p { margin: .4rem 0; }
+.flashcard-progress progress { width: 100%; accent-color: var(--accent); }
+.rating-actions button[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); }
+button:disabled { opacity: .55; cursor: not-allowed; }
+.flashcard { overflow-wrap: anywhere; }
 .exam-setup { display: grid; gap: 1rem; max-width: 650px; }
 .exam-setup > label:first-child { display: grid; gap: .4rem; font-weight: 700; }
 .question-card { padding: 1.25rem; margin-bottom: 1rem; }

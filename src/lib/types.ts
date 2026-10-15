@@ -63,6 +63,19 @@ export interface FlashcardProgress {
   lastReviewedAt: string
 }
 
+export interface FlashcardSession {
+  id: string
+  certificationId: string
+  categoryId: string
+  shuffle: boolean
+  termIds: string[]
+  fullTermIds: string[]
+  index: number
+  ratings: Record<string, FlashcardRating>
+  skippedTermIds: string[]
+  completed: boolean
+}
+
 export interface ExamAttempt {
   id: string
   certificationId: string
@@ -83,6 +96,7 @@ export interface AppData {
   categories: Category[]
   terms: Term[]
   flashcardProgress: FlashcardProgress[]
+  flashcardSessions?: FlashcardSession[]
   examAttempts: ExamAttempt[]
   inProgressExam?: InProgressExam
   theme?: ThemeId
