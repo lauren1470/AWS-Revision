@@ -11,6 +11,16 @@ export function answersAreCorrect(selected: string[] | undefined, correct: strin
   return selected.every((option) => correct.includes(option))
 }
 
+export function toggleAnswerSelection(selected: string[], optionId: string, selectionLimit: number): string[] {
+  if (selected.includes(optionId)) {
+    return selected.filter((id) => id !== optionId)
+  }
+  if (selected.length >= selectionLimit) {
+    return selected
+  }
+  return [...selected, optionId]
+}
+
 export function filterTerms(terms: Term[], query: string, certificationId: string, categoryId: string): Term[] {
   const normalizedQuery = query.trim().toLowerCase()
 

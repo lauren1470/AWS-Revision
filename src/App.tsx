@@ -3,7 +3,7 @@ import './App.css'
 import { generatedQuestions } from './data/generatedPracticeExams'
 import { exportTermsCsv, importTermsCsv, terminologyCsvHeader } from './lib/csv'
 import { loadAppData, requestPersistentStorage, saveAppData, validateBackup } from './lib/database'
-import { answersAreCorrect, calculateSubjectAreaInsights, filterQuestions, filterTerms, generateBalancedExam, generatedExamDurationSeconds, generatedExamQuestionCount } from './lib/study'
+import { answersAreCorrect, calculateSubjectAreaInsights, filterQuestions, filterTerms, generateBalancedExam, generatedExamDurationSeconds, generatedExamQuestionCount, toggleAnswerSelection } from './lib/study'
 import type { AppData, Category, Certification, ExamAttempt, FlashcardRating, InProgressExam, Question, Term } from './lib/types'
 import { themes } from './lib/types'
 
@@ -404,7 +404,7 @@ function PracticeExams({ questions, certificationId, savedExam, onExamChange, on
     const current = session.answers[question.id] ?? []
     const next = question.correctOptionIds.length === 1
       ? [optionId]
-      : current.includes(optionId) ? current.filter((id) => id !== optionId) : [...current, optionId]
+      : toggleAnswerSelection(current, optionId, question.correctOptionIds.length)
     setSession({ ...session, answers: { ...session.answers, [question.id]: next } })
   }
   function toggleFlag(questionId: string) {
@@ -425,9 +425,9 @@ function PracticeExams({ questions, certificationId, savedExam, onExamChange, on
 
   if (result) return <ExamResults attempt={result} questions={sessionQuestions} onBack={() => { setResult(null); setSessionState(null) }} />
   if (session) return <section className="exam-session"><div className="page-heading"><div><p className="eyebrow">Time remaining: {Math.floor(remainingSeconds / 60)}:{String(remainingSeconds % 60).padStart(2, '0')}</p><h1>75-question practice exam</h1><p className="helper">{Object.keys(session.answers).length}/75 answered · {session.flaggedQuestionIds.length} flagged for review · Progress saves automatically</p></div><div className="actions"><button type="button" onClick={() => { if (window.confirm('Discard this exam? Your answers will not be scored.')) { setSessionState(null); onExamChange(undefined) } }}>Discard exam</button><button type="button" className="primary" onClick={submit}>Submit answers</button></div></div>
-    {session.questions.map((question, index) => <article className="question-card" key={question.id}><div className="question-heading"><div><p className="eyebrow">{question.subjectArea}</p><h2>{index + 1}. {question.prompt}</h2></div><button type="button" className={session.flaggedQuestionIds.includes(question.id) ? 'flagged' : ''} onClick={() => toggleFlag(question.id)} aria-pressed={session.flaggedQuestionIds.includes(question.id)}>{session.flaggedQuestionIds.includes(question.id) ? 'Flagged for review' : 'Flag for review'}</button></div><p className="helper">{question.correctOptionIds.length > 1 ? 'Choose all that apply.' : 'Choose one answer.'}</p>
-      {question.options.map((option) => <label className="option" key={option.id}><input type={question.correctOptionIds.length > 1 ? 'checkbox' : 'radio'} name={question.id} checked={(session.answers[question.id] ?? []).includes(option.id)} onChange={() => toggle(question, option.id)} /> <strong>{option.id}.</strong> {option.label}</label>)}
-    </article>)}</section>
+    {session.questions.map((question, index) => { const selected = session.answers[question.id] ?? []; const selectionLimit = question.correctOptionIds.length; return <article className="question-card" key={question.id}><div className="question-heading"><div><p className="eyebrow">{question.subjectArea}</p><h2>{index + 1}. {question.prompt}</h2></div><button type="button" className={session.flaggedQuestionIds.includes(question.id) ? 'flagged' : ''} onClick={() => toggleFlag(question.id)} aria-pressed={session.flaggedQuestionIds.includes(question.id)}>{session.flaggedQuestionIds.includes(question.id) ? 'Flagged for review' : 'Flag for review'}</button></div><p className="helper">{selectionLimit === 1 ? 'Choose one answer.' : `Choose ${selectionLimit} answers.`}</p>
+      {question.options.map((option) => { const isSelected = selected.includes(option.id); return <label className="option" key={option.id}><input type={selectionLimit === 1 ? 'radio' : 'checkbox'} name={question.id} checked={isSelected} disabled={selectionLimit > 1 && !isSelected && selected.length >= selectionLimit} onChange={() => toggle(question, option.id)} /> <strong>{option.id}.</strong> {option.label}</label> })}
+    </article> })}</section>
 
   return <section><div className="page-heading"><div><p className="eyebrow">Cloud Practitioner question bank</p><h1>Practice exams</h1></div></div>
     <div className="section-card exam-setup"><h2>Generated question-bank exam</h2><p>This creates a randomized, balanced {generatedExamQuestionCount}-question exam from all {questions.length} Cloud Practitioner questions. Every subject area is included when available.</p>

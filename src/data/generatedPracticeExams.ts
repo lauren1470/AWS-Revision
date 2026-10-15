@@ -118,7 +118,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "E"
     ],
     "subjectArea": "Cloud concepts and migration"
   },
@@ -238,7 +239,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "E"
     ],
     "subjectArea": "Storage"
   },
@@ -416,7 +418,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "E"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -536,7 +539,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "C"
     ],
     "subjectArea": "Storage"
   },
@@ -598,7 +602,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "C"
     ],
     "subjectArea": "Management and monitoring"
   },
@@ -776,7 +781,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "D"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -954,7 +960,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "C"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -1132,7 +1139,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "D"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -1165,7 +1173,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "B"
     ],
     "subjectArea": "Compute"
   },
@@ -1314,7 +1323,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "E"
     ],
     "subjectArea": "Compute"
   },
@@ -1405,7 +1415,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "D"
     ],
     "subjectArea": "Storage"
   },
@@ -1438,7 +1449,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "D"
+      "D",
+      "E"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -1703,7 +1715,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "B"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -1910,7 +1923,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "C"
     ],
     "subjectArea": "Networking and content delivery"
   },
@@ -1972,7 +1986,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "E"
     ],
     "subjectArea": "Compute"
   },
@@ -2005,7 +2020,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "D"
+      "D",
+      "E"
     ],
     "subjectArea": "Compute"
   },
@@ -2212,7 +2228,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "D"
+      "D",
+      "E"
     ],
     "subjectArea": "Cloud concepts and migration"
   },
@@ -2361,7 +2378,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "E"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -2481,7 +2499,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "C"
     ],
     "subjectArea": "Cloud concepts and migration"
   },
@@ -2514,7 +2533,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "D"
+      "D",
+      "E"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -2605,7 +2625,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "E"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -2725,7 +2746,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "C"
     ],
     "subjectArea": "Compute"
   },
@@ -2845,7 +2867,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "E"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -2878,7 +2901,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "C"
     ],
     "subjectArea": "Databases and analytics"
   },
@@ -3027,7 +3051,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "C"
     ],
     "subjectArea": "Compute"
   },
@@ -3205,7 +3230,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "E"
     ],
     "subjectArea": "Storage"
   },
@@ -3238,7 +3264,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "D"
     ],
     "subjectArea": "Databases and analytics"
   },
@@ -3416,7 +3443,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "C"
     ],
     "subjectArea": "Storage"
   },
@@ -3507,7 +3535,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "D"
+      "D",
+      "E"
     ],
     "subjectArea": "Databases and analytics"
   },
@@ -3598,7 +3627,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "D"
+      "D",
+      "E"
     ],
     "subjectArea": "Compute"
   },
@@ -3660,7 +3690,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "D"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -3722,7 +3753,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "E"
     ],
     "subjectArea": "Networking and content delivery"
   },
@@ -3813,7 +3845,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "E"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -3933,7 +3966,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "B"
     ],
     "subjectArea": "Compute"
   },
@@ -4053,7 +4087,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "C"
     ],
     "subjectArea": "Compute"
   },
@@ -4144,7 +4179,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "E"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -4293,7 +4329,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "D"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -4384,7 +4421,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "D"
     ],
     "subjectArea": "Compute"
   },
@@ -4533,7 +4571,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "B"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -4566,7 +4605,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "C"
     ],
     "subjectArea": "Compute"
   },
@@ -4599,7 +4639,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "D"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -4835,7 +4876,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "C"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -4868,7 +4910,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "D"
     ],
     "subjectArea": "Storage"
   },
@@ -5104,7 +5147,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "D"
     ],
     "subjectArea": "Databases and analytics"
   },
@@ -5253,7 +5297,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "D"
     ],
     "subjectArea": "Databases and analytics"
   },
@@ -5286,7 +5331,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "E"
     ],
     "subjectArea": "Cloud concepts and migration"
   },
@@ -5348,7 +5394,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "D"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -5381,7 +5428,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "E"
     ],
     "subjectArea": "Compute"
   },
@@ -5414,7 +5462,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "E"
     ],
     "subjectArea": "Pricing, billing, and support"
   },
@@ -5447,7 +5496,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "E"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -5654,7 +5704,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "E"
     ],
     "subjectArea": "Cloud concepts and migration"
   },
@@ -5687,7 +5738,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "D"
     ],
     "subjectArea": "Databases and analytics"
   },
@@ -5720,7 +5772,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "C"
     ],
     "subjectArea": "Storage"
   },
@@ -5753,7 +5806,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "C"
     ],
     "subjectArea": "Databases and analytics"
   },
@@ -5844,7 +5898,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "E"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -5906,7 +5961,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "E"
     ],
     "subjectArea": "Databases and analytics"
   },
@@ -6113,7 +6169,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "C"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -6205,7 +6262,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "C"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -6238,7 +6296,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "D"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -6474,7 +6533,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "C"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -6594,7 +6654,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "E"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -6685,7 +6746,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "D"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -6921,7 +6983,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "B"
     ],
     "subjectArea": "Storage"
   },
@@ -6983,7 +7046,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "C"
     ],
     "subjectArea": "Compute"
   },
@@ -7277,7 +7341,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "C"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -7368,7 +7433,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "D"
+      "D",
+      "E"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -7488,7 +7554,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "E"
     ],
     "subjectArea": "Compute"
   },
@@ -7521,7 +7588,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "C"
     ],
     "subjectArea": "Compute"
   },
@@ -7583,7 +7651,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "C"
     ],
     "subjectArea": "Management and monitoring"
   },
@@ -7674,7 +7743,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "D"
+      "D",
+      "E"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -7707,7 +7777,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "C"
     ],
     "subjectArea": "Compute"
   },
@@ -7798,7 +7869,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "E"
     ],
     "subjectArea": "Compute"
   },
@@ -7918,7 +7990,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "D"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -8212,7 +8285,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "C"
     ],
     "subjectArea": "Storage"
   },
@@ -8274,7 +8348,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "D"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -8481,7 +8556,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "D"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -8572,7 +8648,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "E"
     ],
     "subjectArea": "Compute"
   },
@@ -8634,7 +8711,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "D"
     ],
     "subjectArea": "Storage"
   },
@@ -8754,7 +8832,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "C"
     ],
     "subjectArea": "Networking and content delivery"
   },
@@ -8961,7 +9040,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "D"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -9052,7 +9132,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "D"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -9114,7 +9195,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "E"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -9147,7 +9229,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "E"
     ],
     "subjectArea": "Networking and content delivery"
   },
@@ -9238,7 +9321,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "E"
     ],
     "subjectArea": "Compute"
   },
@@ -9387,7 +9471,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "C"
     ],
     "subjectArea": "Compute"
   },
@@ -9652,7 +9737,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "E"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -9772,7 +9858,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "D"
     ],
     "subjectArea": "Networking and content delivery"
   },
@@ -9892,7 +9979,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "C"
     ],
     "subjectArea": "Compute"
   },
@@ -9925,7 +10013,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "B"
     ],
     "subjectArea": "Compute"
   },
@@ -9987,7 +10076,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "D"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -10223,7 +10313,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "E"
     ],
     "subjectArea": "Management and monitoring"
   },
@@ -10401,7 +10492,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "D"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -10463,7 +10555,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "E"
     ],
     "subjectArea": "Storage"
   },
@@ -10496,7 +10589,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "D"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -10674,7 +10768,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "D"
     ],
     "subjectArea": "Management and monitoring"
   },
@@ -10765,7 +10860,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "E"
     ],
     "subjectArea": "Compute"
   },
@@ -10798,7 +10894,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "C"
     ],
     "subjectArea": "Pricing, billing, and support"
   },
@@ -10947,7 +11044,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "E"
     ],
     "subjectArea": "Compute"
   },
@@ -10980,7 +11078,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "B"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -11013,7 +11112,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "D"
     ],
     "subjectArea": "Storage"
   },
@@ -11220,7 +11320,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "E"
     ],
     "subjectArea": "Cloud concepts and migration"
   },
@@ -11253,7 +11354,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "D"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -11373,7 +11475,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "D"
+      "D",
+      "E"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -11522,7 +11625,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "D"
+      "D",
+      "E"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -11555,7 +11659,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "C"
     ],
     "subjectArea": "Storage"
   },
@@ -11588,7 +11693,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "E"
     ],
     "subjectArea": "Compute"
   },
@@ -11621,7 +11727,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "E"
     ],
     "subjectArea": "Compute"
   },
@@ -11712,7 +11819,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "C"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -12035,7 +12143,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "D"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -12209,7 +12318,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "D"
     ],
     "subjectArea": "Networking and content delivery"
   },
@@ -12387,7 +12497,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "C"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -12449,7 +12560,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "E"
     ],
     "subjectArea": "Cloud concepts and migration"
   },
@@ -12627,7 +12739,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "D"
     ],
     "subjectArea": "Compute"
   },
@@ -12689,7 +12802,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "D"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -12838,7 +12952,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "E"
     ],
     "subjectArea": "Storage"
   },
@@ -12958,7 +13073,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "E"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -13078,7 +13194,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "C"
     ],
     "subjectArea": "Pricing, billing, and support"
   },
@@ -13140,7 +13257,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "C"
     ],
     "subjectArea": "Networking and content delivery"
   },
@@ -13173,7 +13291,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "D"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -13323,7 +13442,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "B"
     ],
     "subjectArea": "Compute"
   },
@@ -13443,7 +13563,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "D"
     ],
     "subjectArea": "Compute"
   },
@@ -13563,7 +13684,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "E"
     ],
     "subjectArea": "Compute"
   },
@@ -13625,7 +13747,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "D"
+      "D",
+      "E"
     ],
     "subjectArea": "Management and monitoring"
   },
@@ -13803,7 +13926,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "E"
     ],
     "subjectArea": "Pricing, billing, and support"
   },
@@ -13836,7 +13960,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "C"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -13927,7 +14052,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "E"
     ],
     "subjectArea": "Storage"
   },
@@ -14018,7 +14144,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "C"
     ],
     "subjectArea": "Pricing, billing, and support"
   },
@@ -14167,7 +14294,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "D"
     ],
     "subjectArea": "Compute"
   },
@@ -14200,7 +14328,9 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "C",
+      "D"
     ],
     "subjectArea": "Pricing, billing, and support"
   },
@@ -14378,7 +14508,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "E"
     ],
     "subjectArea": "Networking and content delivery"
   },
@@ -14411,7 +14542,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "E"
     ],
     "subjectArea": "Storage"
   },
@@ -14705,7 +14837,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "B"
     ],
     "subjectArea": "Compute"
   },
@@ -15086,7 +15219,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "E"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -15119,7 +15253,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "E"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -15152,7 +15287,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "D"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -15214,7 +15350,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "D"
     ],
     "subjectArea": "Pricing, billing, and support"
   },
@@ -15247,7 +15384,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "C"
     ],
     "subjectArea": "Databases and analytics"
   },
@@ -15483,7 +15621,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "C"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -15632,7 +15771,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "C"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -15810,7 +15950,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "E"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -16133,7 +16274,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "E"
     ],
     "subjectArea": "Storage"
   },
@@ -16166,7 +16308,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "D"
     ],
     "subjectArea": "Databases and analytics"
   },
@@ -16402,7 +16545,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "C"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -16522,7 +16666,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "D"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -16613,7 +16758,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "D"
     ],
     "subjectArea": "Networking and content delivery"
   },
@@ -16675,7 +16821,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "C"
     ],
     "subjectArea": "Cloud concepts and migration"
   },
@@ -16853,7 +17000,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "C"
+      "C",
+      "D"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -16915,7 +17063,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "D"
+      "D",
+      "E"
     ],
     "subjectArea": "Identity and access management (IAM)"
   },
@@ -17064,7 +17213,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "D"
     ],
     "subjectArea": "Networking and content delivery"
   },
@@ -17126,7 +17276,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "C"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -17159,7 +17310,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "D"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -17511,7 +17663,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "E"
     ],
     "subjectArea": "Security and compliance"
   },
@@ -17573,7 +17726,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "D"
     ],
     "subjectArea": "Storage"
   },
@@ -17606,7 +17760,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "C"
     ],
     "subjectArea": "Pricing, billing, and support"
   },
@@ -17668,7 +17823,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "C"
     ],
     "subjectArea": "Compute"
   },
@@ -17759,7 +17915,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "D"
     ],
     "subjectArea": "Pricing, billing, and support"
   },
@@ -20796,7 +20953,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "B"
+      "B",
+      "E"
     ],
     "explanation": "- AWS Training and Certification builds your competence, confidence, and credibility through practical cloud skills that help you innovate and build your future. - Our content is built by experts at AWS and updated regularly so you're always learning the latest and keeping your cloud skills fresh. - Amazon offer both digital and classroom training including private on-site training. You can choose to learn online at your own pace or learn from an accredited AWS instructor. - Whether you're just starting out, building on existing IT skills, or sharpening your cloud knowledge, AWS Training and Certification can help you be more effective and do more in the cloud. Reference:",
     "subjectArea": "Security and compliance"
@@ -21699,7 +21857,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "D"
     ],
     "explanation": "- AWS Direct Connect enables you to securely connect your AWS environment to your on-premises data center or office location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic connection. - AWS Direct Connect offers dedicated high speed, low latency connection, which bypasses internet service providers in your network path. - An AWS Direct Connect location provides access to Amazon Web Services in the region it is associated with, as well as access to other US regions. - AWS Direct Connect allows you to logically partition the fiber-optic connections into multiple logical connections called Virtual Local Area Networks (VLAN). - You can take advantage of these logical connections to improve security, differentiate traffic, and achieve compliance requirements. Reference:",
     "subjectArea": "Networking and content delivery"
@@ -24805,7 +24964,8 @@ export const generatedQuestions: Question[] = [
       }
     ],
     "correctOptionIds": [
-      "A"
+      "A",
+      "B"
     ],
     "explanation": "",
     "subjectArea": "Security and compliance"

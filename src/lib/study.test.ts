@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { calculateSubjectAreaInsights, filterTerms, answersAreCorrect, generateBalancedExam } from './study'
+import { calculateSubjectAreaInsights, filterTerms, answersAreCorrect, generateBalancedExam, toggleAnswerSelection } from './study'
 import type { Question, Term } from './types'
 
 const term: Term = {
@@ -17,6 +17,15 @@ describe('answersAreCorrect', () => {
     expect(answersAreCorrect(['C', 'A'], ['A', 'C'])).toBe(true)
     expect(answersAreCorrect(['A'], ['A', 'C'])).toBe(false)
     expect(answersAreCorrect(['A', 'B'], ['A', 'C'])).toBe(false)
+  })
+})
+
+describe('toggleAnswerSelection', () => {
+  it('allows selecting up to the question limit and deselecting an option', () => {
+    expect(toggleAnswerSelection([], 'A', 2)).toEqual(['A'])
+    expect(toggleAnswerSelection(['A'], 'B', 2)).toEqual(['A', 'B'])
+    expect(toggleAnswerSelection(['A', 'B'], 'C', 2)).toEqual(['A', 'B'])
+    expect(toggleAnswerSelection(['A', 'B'], 'A', 2)).toEqual(['B'])
   })
 })
 

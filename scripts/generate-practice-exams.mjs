@@ -48,13 +48,13 @@ function parseQuestion(block, fileName, number) {
   const choices = [...beforeDetails.matchAll(/^\s*-\s*([A-Z])\.\s+([\s\S]*?)(?=^\s*-\s*[A-Z]\.\s+|$)/gm)].map(
     ([, id, label]) => ({ id, label: cleanHtml(label) }),
   )
-  const answerMatch = block.match(/Correct Answer:\s*([A-Z]+)/i)
+  const answerMatch = block.match(/Correct Answer:\s*([A-Z]+(?:\s*,\s*[A-Z]+)*)/i)
 
   if (choices.length < 2 || !answerMatch) {
     throw new Error(`${fileName}: question ${number} is missing choices or a correct answer`)
   }
 
-  const correctOptionIds = [...answerMatch[1].toUpperCase()]
+  const correctOptionIds = answerMatch[1].toUpperCase().match(/[A-Z]/g) ?? []
   if (correctOptionIds.some((id) => !choices.some((choice) => choice.id === id))) {
     throw new Error(`${fileName}: question ${number} has an answer that is not an option`)
   }
