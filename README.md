@@ -12,7 +12,7 @@ A private, local-first study workspace for AWS certifications. The first seed ba
 - Randomized 90-minute, 75-question exams balanced across all tagged Cloud Practitioner subject areas, with flags for later review, multi-answer support, deferred answer review, explanations, and result history.
 - Question-bank coverage and subject-area performance insights so you can identify areas needing more revision.
 - Browser-local IndexedDB storage, plus full JSON backup export and restore.
-- Colour themes (Ocean blue, Pink, Purple, Green, Dark), selectable in **Settings → Theme**.
+- Colour themes (Blue, Pink, Purple, Green, Dark), selectable in **Settings → Theme**.
 
 ## Start the app
 

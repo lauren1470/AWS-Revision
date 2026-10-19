@@ -106,7 +106,7 @@ export interface AppData {
 export type ThemeId = 'blue' | 'pink' | 'purple' | 'green' | 'dark'
 
 export const themes: { id: ThemeId; name: string; swatch: string }[] = [
-  { id: 'blue', name: 'Ocean blue', swatch: '#2563eb' },
+  { id: 'blue', name: 'Blue', swatch: '#2563eb' },
   { id: 'pink', name: 'Pink', swatch: '#db2777' },
   { id: 'purple', name: 'Purple', swatch: '#7c3aed' },
   { id: 'green', name: 'Green', swatch: '#059669' },
