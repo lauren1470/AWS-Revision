@@ -286,7 +286,10 @@ function Glossary({
     <div className="page-grid">
       <section>
         <div className="page-heading"><div><p className="eyebrow">Personal knowledge base</p><h1>Glossary</h1></div>
-          <button type="button" onClick={() => download('aws-terminology.csv', exportTermsCsv(data.terms), 'text/csv')}>Export CSV</button>
+          <div className="inline-actions">
+            <label className="file-button">Import CSV<input type="file" accept=".csv,text/csv" onChange={(event) => { const file = event.target.files?.[0]; if (file) void importCsv(file) }} /></label>
+            <button type="button" onClick={() => download('aws-terminology.csv', exportTermsCsv(data.terms), 'text/csv')}>Export CSV</button>
+          </div>
         </div>
         <div className="filters">
           <input aria-label="Search terminology" placeholder="Search terms or definitions" value={query} onChange={(event) => setQuery(event.target.value)} />
@@ -300,7 +303,6 @@ function Glossary({
             <option value="newest">Newest added</option>
             <option value="oldest">Oldest added</option>
           </select>
-          <label className="file-button">Import CSV<input type="file" accept=".csv,text/csv" onChange={(event) => { const file = event.target.files?.[0]; if (file) void importCsv(file) }} /></label>
         </div>
         <p className="helper">Expected CSV headers: <code>{terminologyCsvHeader.join(',')}</code></p>
         <div className="term-list">
