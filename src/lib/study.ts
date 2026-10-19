@@ -1,7 +1,11 @@
-import type { Question, Term } from './types'
+import type { Category, Question, Term } from './types'
 
 export const generatedExamQuestionCount = 75
 export const generatedExamDurationSeconds = 90 * 60
+
+export function sortCategories(categories: Category[]): Category[] {
+  return [...categories].sort((left, right) => left.name.localeCompare(right.name, undefined, { sensitivity: 'base', numeric: true }))
+}
 
 export function answersAreCorrect(selected: string[] | undefined, correct: string[]): boolean {
   if (!selected || selected.length !== correct.length) {

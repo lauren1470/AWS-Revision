@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { createFlashcardSession, flashcardShortcut, moveFlashcard, restoreFlashcardSession } from './lib/flashcards'
+import { sortCategories } from './lib/study'
 import type { Category, FlashcardRating, FlashcardSession, Term } from './lib/types'
 
 const ratingLabels: Record<FlashcardRating, string> = { again: 'Again', good: 'Good', easy: 'Easy' }
@@ -84,7 +85,7 @@ export function Flashcards({ terms, categories, certificationId, savedSession, o
     {mode === 'setup' && <div className="section-card flashcard-setup">
       <h2>Set up your session</h2>
       <label>Category<select value={categoryId} onChange={(event) => setCategoryId(event.target.value)}>
-        <option value="all">All categories</option>{categories.map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}
+        <option value="all">All categories</option>{sortCategories(categories).map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}
       </select></label>
       <label className="check"><input type="checkbox" checked={shuffle} onChange={(event) => setShuffle(event.target.checked)} />Shuffle cards</label>
       <p>{selected.length} cards available. Each session uses all matching cards.</p>
