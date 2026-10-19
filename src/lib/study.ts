@@ -35,6 +35,21 @@ export function filterTerms(terms: Term[], query: string, certificationId: strin
   })
 }
 
+export type TermSortOrder = 'term-asc' | 'term-desc' | 'newest' | 'oldest'
+
+export function sortTerms(terms: Term[], sortOrder: TermSortOrder): Term[] {
+  return [...terms].sort((left, right) => {
+    if (sortOrder === 'newest' || sortOrder === 'oldest') {
+      const dateOrder = Date.parse(left.createdAt) - Date.parse(right.createdAt)
+      const orderedDate = sortOrder === 'newest' ? -dateOrder : dateOrder
+      return orderedDate || left.term.localeCompare(right.term, undefined, { sensitivity: 'base', numeric: true })
+    }
+
+    const termOrder = left.term.localeCompare(right.term, undefined, { sensitivity: 'base', numeric: true })
+    return sortOrder === 'term-asc' ? termOrder : -termOrder
+  })
+}
+
 export function filterQuestions(questions: Question[], certificationId: string, categoryId = 'all'): Question[] {
   return questions.filter(
     (question) =>
