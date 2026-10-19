@@ -5,7 +5,7 @@ import { saveFlashcardSession } from './lib/flashcards'
 import { generatedQuestions } from './data/generatedPracticeExams'
 import { exportTermsCsv, importTermsCsv, terminologyCsvHeader } from './lib/csv'
 import { loadAppData, requestPersistentStorage, saveAppData, validateBackup } from './lib/database'
-import { answersAreCorrect, calculateSubjectAreaInsights, filterQuestions, filterTerms, generateBalancedExam, generatedExamDurationSeconds, generatedExamQuestionCount, sortTerms, toggleAnswerSelection, type TermSortOrder } from './lib/study'
+import { answersAreCorrect, calculateSubjectAreaInsights, filterQuestions, filterTerms, generateBalancedExam, generatedExamDurationSeconds, generatedExamQuestionCount, sortCategories, sortTerms, toggleAnswerSelection, type TermSortOrder } from './lib/study'
 import type { AppData, Category, Certification, ExamAttempt, InProgressExam, Question, Term } from './lib/types'
 import { themes } from './lib/types'
 
@@ -232,6 +232,7 @@ function Glossary({
   const [categoryId, setCategoryId] = useState('all')
   const [sortOrder, setSortOrder] = useState<TermSortOrder>('term-asc')
   const [editing, setEditing] = useState<Term | null>(null)
+  const categories = sortCategories(data.categories.filter((category) => category.certificationIds.includes(activeCertificationId)))
   const terms = sortTerms(filterTerms(data.terms, query, activeCertificationId, categoryId), sortOrder)
 
   function saveTerm(event: React.FormEvent<HTMLFormElement>) {
@@ -295,7 +296,7 @@ function Glossary({
           <input aria-label="Search terminology" placeholder="Search terms or definitions" value={query} onChange={(event) => setQuery(event.target.value)} />
           <select aria-label="Filter by category" value={categoryId} onChange={(event) => setCategoryId(event.target.value)}>
             <option value="all">All categories</option>
-            {data.categories.filter((category) => category.certificationIds.includes(activeCertificationId)).map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}
+            {categories.map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}
           </select>
           <select aria-label="Sort terminology" value={sortOrder} onChange={(event) => setSortOrder(event.target.value as TermSortOrder)}>
             <option value="term-asc">A-Z</option>
@@ -308,7 +309,7 @@ function Glossary({
         <div className="term-list">
           {terms.length ? terms.map((term) => (
             <article className="term-card" key={term.id}>
-              <div><h2>{term.term}</h2><p>{term.definition}</p>{term.notes && <small>{term.notes}</small>}{term.categoryIds.length > 0 && <div className="category-tags">{term.categoryIds.map((id) => data.categories.find((category) => category.id === id)).filter((category) => category !== undefined).map((category) => <button type="button" className="category-tag" key={category.id} onClick={() => setCategoryId(category.id)} title="Show only this category">{category.name}</button>)}</div>}</div>
+              <div><h2>{term.term}</h2><p>{term.definition}</p>{term.notes && <small>{term.notes}</small>}{term.categoryIds.length > 0 && <div className="category-tags">{sortCategories(data.categories.filter((category) => term.categoryIds.includes(category.id))).map((category) => <button type="button" className="category-tag" key={category.id} onClick={() => setCategoryId(category.id)} title="Show only this category">{category.name}</button>)}</div>}</div>
               <div className="inline-actions">
                 <button type="button" onClick={() => setEditing(term)}>Edit</button>
                 <button type="button" className="danger" onClick={() => void onSave({ ...data, terms: data.terms.filter((item) => item.id !== term.id) })}>Delete</button>
@@ -317,7 +318,7 @@ function Glossary({
           )) : <p className="empty">No terms match these filters. Add one below or import a CSV.</p>}
         </div>
       </section>
-      <TermForm editing={editing} categories={data.categories.filter((category) => category.certificationIds.includes(activeCertificationId))} onSubmit={saveTerm} onCancel={() => setEditing(null)} />
+      <TermForm editing={editing} categories={categories} onSubmit={saveTerm} onCancel={() => setEditing(null)} />
     </div>
   )
 }
@@ -452,6 +453,7 @@ function Settings({ data, storagePersistent, onSave, onNotice }: { data: AppData
   const [certificationName, setCertificationName] = useState('')
   const [certificationCode, setCertificationCode] = useState('')
   const [certificationLevel, setCertificationLevel] = useState('')
+  const categories = sortCategories(data.categories)
   function addCategory(event: React.FormEvent) {
     event.preventDefault()
     if (!categoryName.trim()) return
@@ -484,7 +486,7 @@ function Settings({ data, storagePersistent, onSave, onNotice }: { data: AppData
   return <section><div className="page-heading"><div><p className="eyebrow">Local data controls</p><h1>Settings</h1></div></div>
     <div className="settings-grid"><article className="section-card"><h2>Theme</h2><p className="helper">Choose a colour scheme. Your choice is saved with your study data.</p><div className="theme-options" role="radiogroup" aria-label="Colour theme">{themes.map((option) => { const selected = (data.theme ?? 'blue') === option.id; return <button type="button" role="radio" aria-checked={selected} className={selected ? 'theme-option selected' : 'theme-option'} key={option.id} onClick={() => void onSave({ ...data, theme: option.id })}><span className="theme-swatch" style={{ background: option.swatch }} />{option.name}</button> })}</div></article>
       <article className="section-card"><h2>Certifications</h2><p className="helper">Add future AWS certifications now. Their practice exams can be imported as separately identified banks later.</p><form onSubmit={addCertification}><label>Name<input value={certificationName} onChange={(event) => setCertificationName(event.target.value)} required /></label><label>Exam code<input value={certificationCode} onChange={(event) => setCertificationCode(event.target.value)} required placeholder="e.g. SAA-C03" /></label><label>Level<input value={certificationLevel} onChange={(event) => setCertificationLevel(event.target.value)} required placeholder="e.g. Associate" /></label><button className="primary" type="submit">Add certification</button></form>{data.certifications.map((certification) => <div className="list-row" key={certification.id}><span>{certification.name} <small>({certification.code})</small></span>{certification.id !== data.activeCertificationId && <button type="button" onClick={() => void onSave({ ...data, certifications: data.certifications.map((item) => item.id === certification.id ? { ...item, active: !item.active } : item) })}>{certification.active ? 'Archive' : 'Activate'}</button>}</div>)}</article>
-      <article className="section-card"><h2>Categories</h2><p className="helper">Categories organize terminology today and are ready for future question-bank tagging.</p><form onSubmit={addCategory}><label>Name<input value={categoryName} onChange={(event) => setCategoryName(event.target.value)} required /></label><label>Description<input value={categoryDescription} onChange={(event) => setCategoryDescription(event.target.value)} /></label><button className="primary" type="submit">Add category</button></form>{data.categories.map((category) => <div className="list-row" key={category.id}><span>{category.name}</span><button type="button" className="danger" onClick={() => { const used = data.terms.some((term) => term.categoryIds.includes(category.id)); if (used) { onNotice('This category is still used by terminology. Remove it from those entries before deleting.'); return } void onSave({ ...data, categories: data.categories.filter((item) => item.id !== category.id) }) }}>Delete</button></div>)}</article>
+      <article className="section-card"><h2>Categories</h2><p className="helper">Categories organize terminology today and are ready for future question-bank tagging.</p><form onSubmit={addCategory}><label>Name<input value={categoryName} onChange={(event) => setCategoryName(event.target.value)} required /></label><label>Description<input value={categoryDescription} onChange={(event) => setCategoryDescription(event.target.value)} /></label><button className="primary" type="submit">Add category</button></form>{categories.map((category) => <div className="list-row" key={category.id}><span>{category.name}</span><button type="button" className="danger" onClick={() => { const used = data.terms.some((term) => term.categoryIds.includes(category.id)); if (used) { onNotice('This category is still used by terminology. Remove it from those entries before deleting.'); return } void onSave({ ...data, categories: data.categories.filter((item) => item.id !== category.id) }) }}>Delete</button></div>)}</article>
       <article className="section-card"><h2>Backup and restore</h2><p>All learning data is saved automatically in this browser and stays after you close the tab. Export a backup before clearing browser data or changing devices.</p><p className="helper">Persistent storage: <strong>{storagePersistent === null ? 'Not supported by this browser' : storagePersistent ? 'Granted (browser will not auto-delete your data)' : 'Not granted (browser may clear data if disk space runs low)'}</strong>. Always open the app at the same address (e.g. http://localhost:5173) and avoid private/incognito windows.</p><div className="actions"><button type="button" onClick={() => download('aws-revision-hub-backup.json', JSON.stringify(data, null, 2), 'application/json')}>Export backup</button><label className="file-button">Restore backup<input type="file" accept=".json,application/json" onChange={(event) => { const file = event.target.files?.[0]; if (file) void importBackup(file) }} /></label></div></article></div>
   </section>
 }

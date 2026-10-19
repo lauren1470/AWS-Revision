@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { calculateSubjectAreaInsights, filterTerms, answersAreCorrect, generateBalancedExam, sortTerms, toggleAnswerSelection } from './study'
-import type { Question, Term } from './types'
+import { calculateSubjectAreaInsights, filterTerms, answersAreCorrect, generateBalancedExam, sortCategories, sortTerms, toggleAnswerSelection } from './study'
+import type { Category, Question, Term } from './types'
 
 const term: Term = {
   id: 's3',
@@ -44,6 +44,19 @@ describe('sortTerms', () => {
   it('sorts by date added in both directions', () => {
     expect(sortTerms(terms, 'newest').map((item) => item.id)).toEqual(['s3', 'ec2', 'iam'])
     expect(sortTerms(terms, 'oldest').map((item) => item.id)).toEqual(['iam', 'ec2', 's3'])
+  })
+})
+
+describe('sortCategories', () => {
+  it('sorts names alphabetically without changing the input array', () => {
+    const categories: Category[] = [
+      { id: 'storage', name: 'Storage', description: '', color: '', certificationIds: [] },
+      { id: 'compute', name: 'compute', description: '', color: '', certificationIds: [] },
+      { id: 'cloud', name: 'Cloud concepts', description: '', color: '', certificationIds: [] },
+    ]
+
+    expect(sortCategories(categories).map((category) => category.name)).toEqual(['Cloud concepts', 'compute', 'Storage'])
+    expect(categories.map((category) => category.name)).toEqual(['Storage', 'compute', 'Cloud concepts'])
   })
 })
 
