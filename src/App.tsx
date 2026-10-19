@@ -5,7 +5,7 @@ import { saveFlashcardSession } from './lib/flashcards'
 import { generatedQuestions } from './data/generatedPracticeExams'
 import { exportTermsCsv, importTermsCsv, terminologyCsvHeader } from './lib/csv'
 import { loadAppData, requestPersistentStorage, saveAppData, validateBackup } from './lib/database'
-import { answersAreCorrect, calculateSubjectAreaInsights, filterQuestions, filterTerms, generateBalancedExam, generatedExamDurationSeconds, generatedExamQuestionCount, toggleAnswerSelection } from './lib/study'
+import { answersAreCorrect, calculateSubjectAreaInsights, filterQuestions, filterTerms, generateBalancedExam, generatedExamDurationSeconds, generatedExamQuestionCount, sortTerms, toggleAnswerSelection, type TermSortOrder } from './lib/study'
 import type { AppData, Category, Certification, ExamAttempt, InProgressExam, Question, Term } from './lib/types'
 import { themes } from './lib/types'
 
@@ -230,8 +230,9 @@ function Glossary({
 }) {
   const [query, setQuery] = useState('')
   const [categoryId, setCategoryId] = useState('all')
+  const [sortOrder, setSortOrder] = useState<TermSortOrder>('term-asc')
   const [editing, setEditing] = useState<Term | null>(null)
-  const terms = filterTerms(data.terms, query, activeCertificationId, categoryId)
+  const terms = sortTerms(filterTerms(data.terms, query, activeCertificationId, categoryId), sortOrder)
 
   function saveTerm(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -292,6 +293,12 @@ function Glossary({
           <select aria-label="Filter by category" value={categoryId} onChange={(event) => setCategoryId(event.target.value)}>
             <option value="all">All categories</option>
             {data.categories.filter((category) => category.certificationIds.includes(activeCertificationId)).map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}
+          </select>
+          <select aria-label="Sort terminology" value={sortOrder} onChange={(event) => setSortOrder(event.target.value as TermSortOrder)}>
+            <option value="term-asc">A-Z</option>
+            <option value="term-desc">Z-A</option>
+            <option value="newest">Newest added</option>
+            <option value="oldest">Oldest added</option>
           </select>
           <label className="file-button">Import CSV<input type="file" accept=".csv,text/csv" onChange={(event) => { const file = event.target.files?.[0]; if (file) void importCsv(file) }} /></label>
         </div>

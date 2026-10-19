@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { calculateSubjectAreaInsights, filterTerms, answersAreCorrect, generateBalancedExam, toggleAnswerSelection } from './study'
+import { calculateSubjectAreaInsights, filterTerms, answersAreCorrect, generateBalancedExam, sortTerms, toggleAnswerSelection } from './study'
 import type { Question, Term } from './types'
 
 const term: Term = {
@@ -26,6 +26,24 @@ describe('toggleAnswerSelection', () => {
     expect(toggleAnswerSelection(['A'], 'B', 2)).toEqual(['A', 'B'])
     expect(toggleAnswerSelection(['A', 'B'], 'C', 2)).toEqual(['A', 'B'])
     expect(toggleAnswerSelection(['A', 'B'], 'A', 2)).toEqual(['B'])
+  })
+})
+
+describe('sortTerms', () => {
+  const terms: Term[] = [
+    { ...term, id: 's3', term: 'Amazon S3', createdAt: '2026-01-03T00:00:00.000Z' },
+    { ...term, id: 'iam', term: 'IAM', createdAt: '2026-01-01T00:00:00.000Z' },
+    { ...term, id: 'ec2', term: 'Amazon EC2', createdAt: '2026-01-02T00:00:00.000Z' },
+  ]
+
+  it('sorts alphabetically in both directions', () => {
+    expect(sortTerms(terms, 'term-asc').map((item) => item.id)).toEqual(['ec2', 's3', 'iam'])
+    expect(sortTerms(terms, 'term-desc').map((item) => item.id)).toEqual(['iam', 's3', 'ec2'])
+  })
+
+  it('sorts by date added in both directions', () => {
+    expect(sortTerms(terms, 'newest').map((item) => item.id)).toEqual(['s3', 'ec2', 'iam'])
+    expect(sortTerms(terms, 'oldest').map((item) => item.id)).toEqual(['iam', 'ec2', 's3'])
   })
 })
 
